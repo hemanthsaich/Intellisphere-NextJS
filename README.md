@@ -62,11 +62,4 @@ The application uses SCSS for styling, with Carbon Design System's tokens and va
 
 ---
 
-## Usage
-
-### Dashboard Tiles
-- **Archive Data**: Navigate to the archive management page.
-- **Products**: View available products.
-- **Documents**: Manage your documents (feature under development).
-- **Overview**: View the system overview (feature under development).
 
