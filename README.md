@@ -11,12 +11,16 @@ The **Optim Dashboard** is a web application designed to provide an intuitive in
 - **Theme Support**: Integrated with a global theme context for light/dark mode toggling.
 - **Modal Dialogs**: Inform users about features under development.
 
-### Archive Management
+### Archive Page
 - **Data Table**: View and manage archived records.
 - **Batch Actions**: Perform actions like delete, save, or archive on multiple records.
   
-### Products
+### Products page
 - **Product Overview**: Viewing available products.
+  
+### Documents page
+- **Documents**: Searching documents.
+- **Filter Documents**: Fitering documents by dropdown.
 
 ### Authentication
 - **Login Page**: Secure login form with validation.
@@ -69,6 +73,8 @@ optim-dashboard/
 │   │   ├── page.tsx          # Main dashboard page
 │   │   ├── archive/          # Archive management page
 │   │   │   ├── page.tsx      # Archive page
+│   │   ├── documents/        # Documents management page
+│   │   │   ├── page.tsx      # Documents page
 │   │   ├── products/         # Products page
 │   │   │   ├── page.tsx      # Products overview
 │   │   │   ├── product/      # Product page
@@ -80,6 +86,9 @@ optim-dashboard/
 │   ├── ThemeContext.tsx      # Global theme context for light/dark mode
 │   ├── globals.scss          # Global styles
 ├── components/               # Reusable components
+│   ├── TextInput.tsx         # Reusable text input component
+│   ├── DropDown.tsx          # Dropdown selection component
+│   ├── DataTableDoc.tsx      # Table component for document-related data
 ├── public/                   # Static assets
 ├── styles/                   # SCSS modules
 ├── README.md                 # Project documentation
