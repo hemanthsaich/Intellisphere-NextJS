@@ -1,0 +1,24 @@
+.documentsContainer {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  
+    h1 {
+      margin: 1.5rem 0;
+    }
+  }
+  
+  .componentsWrapper {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--cds-layer);
+    border-radius: 4px;
+  
+    > * {
+      margin-bottom: 1.5rem;
+  
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }

@@ -1,0 +1,27 @@
+.footer {
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    background-color: var(--cds-layer);
+    color: var(--cds-text-primary);
+    border-top: 1px solid var(--cds-border-strong);
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .links a {
+    text-decoration: none;
+    color: var(--cds-link-primary);
+    font-weight: 500;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,74 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  margin-top: 3rem;
+  background-color: var(--cds-background);
+}
+
+.tilesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tile {
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.tileContent {
+  padding: 1rem;
+}
+
+.tableContainer {
+  margin-top: 2rem;
+  background: var(--cds-layer);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.modalContent {
+  padding: 2rem;
+  text-align: center;
+}
+
+.batchActionsContainer {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start; 
+  gap: 12px; 
+  padding: 10px 20px;
+  background-color: #0c0c0c;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.batchActionsText {
+  font-size: 14px;
+  margin-right: 20px; 
+}
+
+.batchActionsContainer button {
+  margin-right: 0; 
+}
+
+.batchActionsContainer button:last-child {
+  margin-right: 0; 
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px; 
+}

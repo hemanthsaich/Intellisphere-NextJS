@@ -1,0 +1,52 @@
+@import '@carbon/react/scss/themes';
+@import '@carbon/react/scss/colors';
+
+// Color Tokens
+$primary-bg: $carbon--gray-10;
+$tile-bg: $carbon--white;
+$tile-bg-dark: $carbon--gray-80;
+$text-color: $carbon--gray-100;
+$text-color-dark: $carbon--gray-10;
+
+.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $primary-bg;
+}
+
+.authTile {
+  padding: 2rem;
+  background-color: $tile-bg;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h1 {
+      color: $text-color;
+    }
+  }
+
+  .formActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+}
+
+// Dark mode styles
+.theme-dark {
+  background-color: $carbon--gray-100;
+  .authTile {
+    background-color: $tile-bg-dark;
+  }
+  .header h1 {
+    color: $text-color-dark;
+  }
+}
