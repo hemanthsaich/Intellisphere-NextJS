@@ -136,7 +136,10 @@ optim-dashboard/
 - **Registration Form**: User registration form with validation for email, password, and password confirmation.
 - ![localhost_3000_register](https://github.com/user-attachments/assets/4294f065-291a-4f93-9dca-3e6a23430cac)
 
+## Documents Page (`app/dashboard/documents/page.tsx`)
 
+- **Documents Overview:** Displays a structured list of documents with relevant metadata (e.g., name, type, created date).
+- **Data Table:** Shows document records with filtering, sorting, and batch actions.
 ---
 
 ## Styling
