@@ -22,13 +22,11 @@ import {
   ChartColumn,
 } from '@carbon/icons-react';
 import styles from './dashboard.module.scss';
-import { useTheme } from '../ThemeContext'; // Import global theme context
 
 
 export default function DashboardPage() {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme(); // Use global theme
 
 
   const tiles = [
@@ -54,7 +52,7 @@ export default function DashboardPage() {
       title: 'Overview',
       description: 'System overview and status',
       icon: Dashboard,
-      action: () => setIsModalOpen(true),
+      action: () => router.push('/dashboard/overview'),
     },
   ];
 

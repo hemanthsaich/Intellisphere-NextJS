@@ -3,12 +3,18 @@
 import { TextInput, Button } from '@carbon/react';
 import { Search } from '@carbon/icons-react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFormData } from '@/store/slices/overviewSlice';
+import type { RootState } from '@/store/store';
 
 export default function TestInput() {
-  const [value, setValue] = useState('');
+  const dispatch = useDispatch();
+  const formData = useSelector((state: RootState) => state.overview);
+  const [searchTerm, setSearchTerm] = useState(formData.searchTerm || '');
 
   const handleSearch = () => {
-    console.log('Searching for:', value);
+    dispatch(setFormData({ ...formData, searchTerm }));
+    console.log('Searching for:', searchTerm);
   };
 
   return (
@@ -17,12 +23,14 @@ export default function TestInput() {
         id="search-input"
         labelText="Search Documents"
         placeholder="Enter search term"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        disabled={formData.isSubmitted}
       />
       <Button
         renderIcon={Search}
         onClick={handleSearch}
+        disabled={formData.isSubmitted}
       >
         Search
       </Button>

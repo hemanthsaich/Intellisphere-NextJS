@@ -7,10 +7,9 @@ import {
   Button,
   Link,
   PasswordInput,
-  IconButton,
   Tile,
 } from '@carbon/react';
-import { Login as LoginIcon, Moon, Sun } from '@carbon/icons-react';
+import { Login as LoginIcon } from '@carbon/icons-react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';

@@ -26,7 +26,6 @@ import {
 } from '@carbon/react';
 import { TrashCan, Save, Download } from '@carbon/icons-react';
 import styles from '../dashboard.module.scss';
-import { useRouter } from 'next/router';
 
 const headers = [
   { key: 'id', header: 'ID' },

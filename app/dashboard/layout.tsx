@@ -27,6 +27,7 @@ import {
 import styles from "./dashboard.module.scss";
 import { useTheme } from "../ThemeContext"; // Import Theme Hook
 import Footer from "@/components/Footer";
+import { Providers } from '../../app/Providers';
 
 export default function DashboardLayout({
   children,
@@ -48,6 +49,7 @@ export default function DashboardLayout({
                   <HeaderMenuItem href="/dashboard/archive">Archive</HeaderMenuItem>
                   <HeaderMenuItem href="/dashboard/products">Products</HeaderMenuItem>
                   <HeaderMenuItem href="/dashboard/documents">Documents</HeaderMenuItem>
+                  <HeaderMenuItem href="/dashboard/overview">Overview</HeaderMenuItem>
                 </HeaderNavigation>
                 <HeaderGlobalBar>
                   {/* Theme Toggle Button */}

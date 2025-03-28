@@ -1,6 +1,15 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles';
 @use '@carbon/styles/scss/theme' as *;
+@use "@carbon/react/scss/spacing" as *;
+@use '@carbon/react' as *;
+@use '@carbon/react/scss/breakpoint' as *;
+@use '@carbon/styles/scss/grid/flexbox';
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/colors' as *;
+@use '@carbon/react/scss/layer' as *; 
+
 
 :root {
   --max-width: 1100px;

@@ -1,0 +1,29 @@
+.formContainer {
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  
+    h1 {
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .formWrapper {
+    background-color: var(--cds-layer);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+  
+  .formGroup {
+    margin-bottom: 2rem;
+  
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .buttonContainer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
