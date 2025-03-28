@@ -1,4 +1,4 @@
-# IntelliSphere Assesment
+# NextJs Assesment
 
 The **Optim Dashboard** is a web application designed to provide an intuitive interface for managing various features such as archived data, products, documents, and user authentication. Built with React, Next.js, and Carbon Design System, the dashboard is responsive, accessible, and easy to use.
 
