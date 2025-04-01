@@ -56,49 +56,46 @@ export default function ProductsPage() {
   }
 
   return (
-    <Content>
-      <div className={styles.container}>
-        <Grid className="mb-8">
-          <Column sm={4} md={8} lg={16}>
-            <h1 className="cds--type-productive-heading-05">Products</h1>
-          </Column>
-          <Column sm={4} md={8} lg={8}>
-            <Search
-              labelText="Search products"
-              placeholder="Search products..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              size="lg"
-              className={styles.search}
-            />
-          </Column>
-        </Grid>
+    <Content className={styles.container}>
+      <Grid narrow>
+        <Column lg={8} md={4} sm={4}>
+          <h1 className="cds--type-productive-heading-05">Products</h1>
+        </Column>
+        
+        <Column lg={8} md={4} sm={4}>
+          <Search
+            labelText="Search products"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            size="lg"
+            className={styles.search}
+          />
+        </Column>
 
-        <Grid narrow className={styles.productsGrid}>
-          {filteredProducts.map((product) => (
-            <Column sm={4} md={4} lg={4} key={product.id} className={styles.column}>
-              <ClickableTile
-                className={styles.productTile}
-                onClick={() => router.push(`/dashboard/products/product/${product.id}`)}
-              >
-                <AspectRatio ratio="16x9">
-                  <img
-                    src={product.thumbnail}
-                    alt={product.title}
-                    className={styles.productImage}
-                  />
-                </AspectRatio>
-                <div className={styles.productContent}>
-                  <h3 className="cds--type-productive-heading-02">{product.title}</h3>
-                  <p className="cds--type-body-long-01 mt-2">
-                    ${product.price.toFixed(2)}
-                  </p>
-                </div>
-              </ClickableTile>
-            </Column>
-          ))}
-        </Grid>
-      </div>
+        {filteredProducts.map((product) => (
+          <Column sm={4} md={4} lg={4} key={product.id} className={styles.column}>
+            <ClickableTile
+              className={styles.productTile}
+              onClick={() => router.push(`/dashboard/products/product/${product.id}`)}
+            >
+              <AspectRatio ratio="16x9">
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className={styles.productImage}
+                />
+              </AspectRatio>
+              <div className={styles.productContent}>
+                <h3 className="cds--type-productive-heading-02">{product.title}</h3>
+                <p className="cds--type-body-long-01 mt-2">
+                  ${product.price.toFixed(2)}
+                </p>
+              </div>
+            </ClickableTile>
+          </Column>
+        ))}
+      </Grid>
     </Content>
   );
 }

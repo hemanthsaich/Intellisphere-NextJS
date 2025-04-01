@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFormData } from '@/store/slices/overviewSlice';
-import type { RootState } from '@/store/store';
+import type { RootState } from '@/store/types';
 import {
   Grid,
   Column,
@@ -16,7 +16,7 @@ import {
 } from '@carbon/react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './overview.module.scss';
 
 const departments = ['Engineering', 'Marketing', 'Sales', 'Human Resources', 'Finance'];
@@ -29,26 +29,33 @@ const validationSchema = Yup.object({
   description: Yup.string().required('Please enter a description'),
 });
 
+type FormValues = {
+  department: string;
+  location: string;
+  projectName: string;
+  description: string;
+  searchTerm: string;
+};
+
 export default function OverviewPage() {
   const router = useRouter();
   const dispatch = useDispatch();
   const formData = useSelector((state: RootState) => state.overview);
   
-  // If formData exists in Redux, disable the form
-  const [isFormDisabled, setIsFormDisabled] = useState(!!formData.department);
+  const [isFormDisabled, setIsFormDisabled] = useState(formData.isSubmitted);
 
-  const initialValues = {
-    department: formData.department || '',
-    location: formData.location || '',
-    projectName: formData.projectName || '',
-    description: formData.description || '',
-    searchTerm: formData.searchTerm || '',
+  const initialValues: FormValues = {
+    department: formData.department,
+    location: formData.location,
+    projectName: formData.projectName,
+    description: formData.description,
+    searchTerm: formData.searchTerm,
   };
 
-  const handleSubmit = (values: typeof initialValues) => {
+  const handleSubmit = (values: FormValues) => {
     dispatch(setFormData(values));
-    setIsFormDisabled(true); // Disable the form after submission
-    router.push('/dashboard'); // Redirect to the dashboard
+    setIsFormDisabled(true);
+    router.push('/dashboard');
   };
 
   return (

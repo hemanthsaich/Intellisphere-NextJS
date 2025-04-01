@@ -1,13 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface OverviewFormData {
-  department: string;
-  location: string;
-  projectName: string;
-  description: string;
-  searchTerm: string;
-  isSubmitted: boolean;
-}
+import { OverviewFormData } from '../types';
 
 const initialState: OverviewFormData = {
   department: '',
@@ -23,7 +15,11 @@ const overviewSlice = createSlice({
   initialState,
   reducers: {
     setFormData: (state, action: PayloadAction<Omit<OverviewFormData, 'isSubmitted'>>) => {
-      return { ...state, ...action.payload, isSubmitted: true };
+      return {
+        ...state,
+        ...action.payload,
+        isSubmitted: true,
+      };
     },
     resetForm: () => initialState,
   },
