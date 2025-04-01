@@ -7,13 +7,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFormData } from '@/store/slices/overviewSlice';
 import type { RootState } from '@/store/store';
 
-export default function TestInput() {
+interface TestInputProps {
+  searchTerm?: string;
+  setSearchTerm?: (value: string) => void;
+  isDisabled?: boolean;
+  onSearch?: (term: string) => void;
+  useRedux?: boolean;
+}
+
+export default function TestInput({
+  searchTerm: propSearchTerm,
+  setSearchTerm: propSetSearchTerm,
+  isDisabled = false,
+  onSearch,
+  useRedux = false
+}: TestInputProps) {
   const dispatch = useDispatch();
   const formData = useSelector((state: RootState) => state.overview);
-  const [searchTerm, setSearchTerm] = useState(formData.searchTerm || '');
+
+  const [searchTerm, setSearchTerm] = useState(propSearchTerm || formData.searchTerm || '');
 
   const handleSearch = () => {
-    dispatch(setFormData({ ...formData, searchTerm }));
+    if (useRedux) {
+      dispatch(setFormData({ ...formData, searchTerm }));
+    }
+    onSearch?.(searchTerm);
     console.log('Searching for:', searchTerm);
   };
 
@@ -24,13 +42,16 @@ export default function TestInput() {
         labelText="Search Documents"
         placeholder="Enter search term"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        disabled={formData.isSubmitted}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          propSetSearchTerm?.(e.target.value);
+        }}
+        disabled={isDisabled || formData.isSubmitted}
       />
       <Button
         renderIcon={Search}
         onClick={handleSearch}
-        disabled={formData.isSubmitted}
+        disabled={isDisabled || formData.isSubmitted}
       >
         Search
       </Button>

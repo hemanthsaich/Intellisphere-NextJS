@@ -14,8 +14,9 @@ import {
   Breadcrumb,
   BreadcrumbItem,
 } from '@carbon/react';
-import { Formik, Form as FormikForm, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useState, useEffect } from 'react';
 import styles from './overview.module.scss';
 
 const departments = ['Engineering', 'Marketing', 'Sales', 'Human Resources', 'Finance'];
@@ -32,6 +33,9 @@ export default function OverviewPage() {
   const router = useRouter();
   const dispatch = useDispatch();
   const formData = useSelector((state: RootState) => state.overview);
+  
+  // If formData exists in Redux, disable the form
+  const [isFormDisabled, setIsFormDisabled] = useState(!!formData.department);
 
   const initialValues = {
     department: formData.department || '',
@@ -43,7 +47,8 @@ export default function OverviewPage() {
 
   const handleSubmit = (values: typeof initialValues) => {
     dispatch(setFormData(values));
-    router.push('/dashboard');
+    setIsFormDisabled(true); // Disable the form after submission
+    router.push('/dashboard'); // Redirect to the dashboard
   };
 
   return (
@@ -63,8 +68,8 @@ export default function OverviewPage() {
               validationSchema={validationSchema}
               onSubmit={handleSubmit}
             >
-              {({ values, errors, touched, handleChange, setFieldValue }) => (
-                <FormikForm>
+              {({ values, errors, touched, handleChange, setFieldValue, handleSubmit }) => (
+                <Form onSubmit={handleSubmit}>
                   <div className={styles.formGroup}>
                     <Dropdown
                       id="department"
@@ -73,6 +78,7 @@ export default function OverviewPage() {
                       items={departments}
                       selectedItem={values.department}
                       onChange={({ selectedItem }) => setFieldValue('department', selectedItem || '')}
+                      disabled={isFormDisabled}
                       invalid={touched.department && !!errors.department}
                       invalidText={errors.department}
                     />
@@ -86,6 +92,7 @@ export default function OverviewPage() {
                       items={locations}
                       selectedItem={values.location}
                       onChange={({ selectedItem }) => setFieldValue('location', selectedItem || '')}
+                      disabled={isFormDisabled}
                       invalid={touched.location && !!errors.location}
                       invalidText={errors.location}
                     />
@@ -97,6 +104,7 @@ export default function OverviewPage() {
                       labelText="Project Name"
                       value={values.projectName}
                       onChange={handleChange}
+                      disabled={isFormDisabled}
                       invalid={touched.projectName && !!errors.projectName}
                       invalidText={errors.projectName}
                     />
@@ -108,6 +116,7 @@ export default function OverviewPage() {
                       labelText="Description"
                       value={values.description}
                       onChange={handleChange}
+                      disabled={isFormDisabled}
                       invalid={touched.description && !!errors.description}
                       invalidText={errors.description}
                     />
@@ -119,13 +128,16 @@ export default function OverviewPage() {
                       labelText="Search"
                       value={values.searchTerm}
                       onChange={handleChange}
+                      disabled={isFormDisabled}
                     />
                   </div>
 
                   <div className={styles.buttonContainer}>
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit" disabled={isFormDisabled}>
+                      Submit
+                    </Button>
                   </div>
-                </FormikForm>
+                </Form>
               )}
             </Formik>
           </div>

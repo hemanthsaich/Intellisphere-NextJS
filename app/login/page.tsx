@@ -8,21 +8,29 @@ import {
   Link,
   PasswordInput,
   Tile,
+  Grid,
 } from '@carbon/react';
 import { Login as LoginIcon } from '@carbon/icons-react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
-import { useTheme } from '../ThemeContext'; 
-
-const loginSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email address').required('Email is required'),
-  password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
-});
+import { useTheme } from '../ThemeContext';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '@/components/LanguageSelector';
 
 export default function Login() {
   const router = useRouter();
-  const { theme, toggleTheme } = useTheme(); // Use global theme
+  const { theme } = useTheme();
+  const { t } = useTranslation();
+
+  const loginSchema = Yup.object().shape({
+    email: Yup.string()
+      .email(t('auth.validation.emailInvalid'))
+      .required(t('auth.validation.emailRequired')),
+    password: Yup.string()
+      .min(8, t('auth.validation.passwordMin'))
+      .required(t('auth.validation.passwordRequired')),
+  });
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
@@ -35,16 +43,19 @@ export default function Login() {
 
   return (
     <Theme theme={theme}>
-      <main className="auth-container">
+      <Grid className="auth-container">
+        <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+          <LanguageSelector />
+        </div>
         <Tile className="auth-form">
           <div className="header">
-            <h1>Sign in</h1>
+            <h1>{t('auth.signIn')}</h1>
           </div>
           <Form onSubmit={formik.handleSubmit}>
             <div className="form-group">
               <TextInput
                 id="email"
-                labelText="Email"
+                labelText={t('auth.email')}
                 type="email"
                 {...formik.getFieldProps('email')}
                 invalid={formik.touched.email && !!formik.errors.email}
@@ -54,7 +65,7 @@ export default function Login() {
             <div className="form-group">
               <PasswordInput
                 id="password"
-                labelText="Password"
+                labelText={t('auth.password')}
                 {...formik.getFieldProps('password')}
                 invalid={formik.touched.password && !!formik.errors.password}
                 invalidText={formik.touched.password && formik.errors.password}
@@ -62,13 +73,13 @@ export default function Login() {
             </div>
             <div className="form-actions">
               <Button type="submit" renderIcon={LoginIcon}>
-                Login
+                {t('auth.login')}
               </Button>
-              <Link href="/register">Don't have an account? Register here</Link>
+              <Link href="/register">{t('auth.noAccount')}</Link>
             </div>
           </Form>
         </Tile>
-      </main>
+      </Grid>
     </Theme>
   );
 }

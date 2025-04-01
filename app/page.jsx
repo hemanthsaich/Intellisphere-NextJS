@@ -7,7 +7,7 @@ import { useTheme } from '../app/ThemeContext'; // Import global theme context
 
 export default function Home() {
   const router = useRouter();
-  const { theme, toggleTheme } = useTheme(); // Use global theme
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     router.push('/login');
@@ -15,9 +15,6 @@ export default function Home() {
 
   return (
     <Theme theme={theme}>
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ color: theme === 'g100' ? '#fff' : '#000' }}>Loading...</p>
-      </div>
     </Theme>
   );
 }

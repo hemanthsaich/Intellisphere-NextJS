@@ -1,6 +1,6 @@
-projectKey=Test
+projectKey=NextjsAssesment
 serverUrl=http://localhost:9000
 serverVersion=25.3.0.104237
-dashboardUrl=http://localhost:9000/dashboard?id=Test
-ceTaskId=7a31c9c0-2bba-44cf-b3fe-95dbf1351971
-ceTaskUrl=http://localhost:9000/api/ce/task?id=7a31c9c0-2bba-44cf-b3fe-95dbf1351971
+dashboardUrl=http://localhost:9000/dashboard?id=NextjsAssesment
+ceTaskId=3287e3ea-cbcb-4af9-9e39-2617401870a9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=3287e3ea-cbcb-4af9-9e39-2617401870a9

@@ -6,7 +6,7 @@ import styles from "./Footer.module.scss";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={styles.footer}>
+    <div className={styles.footer}>
       <Grid fullWidth>
         <Column sm={4} md={8} lg={8}>
           <span>© 2025 IBM Corporation. All rights reserved.</span>
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           <a href="/support">Support</a>
         </Column>
       </Grid>
-    </footer>
+    </div>
   );
 };
 

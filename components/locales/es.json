@@ -1,0 +1,41 @@
+{
+    "dashboard": "Tablero",
+    "archive": "Archivo",
+    "products": "Productos",
+    "documents": "Documentos",
+    "overview": "Visión general",
+    "notifications": "Notificaciones",
+    "settings": "Ajustes",
+    "user": "Usuario",
+    "switchTheme": "Cambiar tema",
+    "switchLanguage": "Cambiar idioma",
+    "welcome": "Bienvenido a IBM IntelliSphere® Optim™",
+    "startPrompting": "Empieza a preguntar",
+    "footer": {
+      "copyright": "© 2024 IBM Corporation",
+      "rights": "Todos los derechos reservados"
+    },
+    "auth": {
+      "signIn": "Iniciar sesión",
+      "createAccount": "Crear cuenta",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "login": "Iniciar sesión",
+      "register": "Registrarse",
+      "noAccount": "¿No tienes una cuenta? Regístrate aquí",
+      "haveAccount": "¿Ya tienes una cuenta? Inicia sesión aquí",
+      "validation": {
+        "emailRequired": "El correo electrónico es requerido",
+        "emailInvalid": "Correo electrónico inválido",
+        "passwordRequired": "La contraseña es requerida",
+        "passwordMin": "La contraseña debe tener al menos 8 caracteres",
+        "passwordLowercase": "Debe contener al menos una letra minúscula",
+        "passwordUppercase": "Debe contener al menos una letra mayúscula",
+        "passwordNumber": "Debe contener al menos un número",
+        "confirmRequired": "Confirmar contraseña es requerido",
+        "passwordMatch": "Las contraseñas deben coincidir"
+      }
+    }
+  }
+  

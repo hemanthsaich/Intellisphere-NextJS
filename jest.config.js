@@ -12,4 +12,11 @@ const customJestConfig = {
   },
 };
 
-module.exports = createJestConfig(customJestConfig);
+module.exports = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest', // Ensure Jest uses Babel for ES Modules
+  },
+};
+

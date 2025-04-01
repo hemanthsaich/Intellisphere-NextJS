@@ -35,7 +35,7 @@ export default function DocumentsPage() {
           <h1 className="cds--type-productive-heading-05">Document Management</h1>
           
           <div className={styles.componentsWrapper}>
-            <TestInput />
+            <TestInput useRedux={true} />
             <DropDown onChange={handleDropDownChange} />
             {selectedOption && <DataTable selectedCategory={selectedOption} />}
           </div>
