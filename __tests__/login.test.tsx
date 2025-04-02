@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
-import Login from '../page';
+import Login from '../app/login/page';
 
 // Mock the next/navigation
 jest.mock('next/navigation', () => ({
@@ -9,7 +9,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 // Mock the ThemeContext
-jest.mock('../../ThemeContext', () => ({
+jest.mock('../app/ThemeContext', () => ({
   useTheme: () => ({ theme: 'g100' }),
 }));
 
